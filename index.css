@@ -5,3 +5,9 @@ body {
 canvas {
 
 }
+
+h1 {
+  position: absolute;
+  top: 2%;
+  left: 50%;
+}

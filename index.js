@@ -93,5 +93,13 @@ function animate() {
   circleArray.update();
 }
 //creates an array of particles
+c.font = "Bold 35px Arial";
+c.textAlign = "center";
+c.fillStyle ="black";
+c.fillText("Website",100,100);
+c.strokeStyle = "black";
+c.strokeText("Website",100,100);
+c.textBaseline = "bottom";
+
 var circleArray = new CircleArray(particleNum);
 animate();
