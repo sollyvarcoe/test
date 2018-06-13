@@ -75,8 +75,8 @@ function CircleArray(size) {
     var radius = Math.random() * 4 + 1;
     var x = Math.random() * (innerWidth - (radius * 2)) + radius;
     var y = Math.random() * (innerHeight - (radius * 2)) + radius;
-    var dx = (Math.random() - 1) * 2;
-    var dy = (Math.random() - 1) * 2;
+    var dx = (Math.random() - 0.5) * 2;
+    var dy = (Math.random() - 0.5) * 2;
     this.Array.push(new Circle(x,y,dx,dy,radius))
   }
   this.update = function() {
