@@ -16,9 +16,9 @@ var colourArray = [
   '#fe5f55'
 ];
 //max circle radius
-var maxRadius = 60;
+var maxRadius = 50;
 //number of particles generated
-var particleNum = 2000
+var particleNum = 1000
 //canvas objext
 var c = canvas.getContext("2d");
 //evnet listener for mouse movement
