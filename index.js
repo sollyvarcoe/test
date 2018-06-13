@@ -34,11 +34,11 @@ function Circle(x,y,dx,dy,radius) {
 function CircleArray(size) {
   this.Array = [];
   for (i = 0; i < size; i++) {
-    var x = Math.random() * innerWidth;
-    var y = Math.random() * innerHeight;
+    var radius = Math.random() * 20 + 20;
+    var x = Math.random() * (innerWidth - (radius * 2)) + radius;
+    var y = Math.random() * (innerHeight - (radius * 2)) + radius;
     var dx = (Math.random() - 1) * 10;
     var dy = (Math.random() - 1) * 10;
-    var radius = Math.random() * 20 + 20;
     this.Array.push(new Circle(x,y,dx,dy,radius))
   }
   this.update = function() {
