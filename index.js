@@ -1,11 +1,13 @@
-console.log("test");
 var canvas = document.querySelector('canvas')
+//Sets canvas to size of window
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+//variables to hold mouse pos
 var mouse = {
   x: undefined,
   y: undefined
 }
+//array of colours
 var colourArray = [
   '#b8d8d8',
   '#7a9e9f',
@@ -13,18 +15,26 @@ var colourArray = [
   '#eef5db',
   '#fe5f55'
 ];
+//max circle radius
 var maxRadius = 60;
+//number of particles generated
+var particleNum = 2000
+//canvas objext
 var c = canvas.getContext("2d");
+//evnet listener for mouse movement
 window.addEventListener('mousemove', function(event) {
   mouse.x = event.x;
   mouse.y = event.y;
 })
+//event listener for window resize
 window.addEventListener('resize', function(event) {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  circleArray = new CircleArray(1000);
+  circleArray = new CircleArray(particleNum);
 })
 
+
+//circle object
 function Circle(x,y,dx,dy,radius) {
   this.x = x;
   this.y = y;
@@ -59,11 +69,11 @@ function Circle(x,y,dx,dy,radius) {
     this.draw();
   }
 }
-
+//circle array object
 function CircleArray(size) {
   this.Array = [];
   for (i = 0; i < size; i++) {
-    var radius = Math.random() * 3 + 1;
+    var radius = Math.random() * 4 + 1;
     var x = Math.random() * (innerWidth - (radius * 2)) + radius;
     var y = Math.random() * (innerHeight - (radius * 2)) + radius;
     var dx = (Math.random() - 1) * 2;
@@ -77,10 +87,12 @@ function CircleArray(size) {
   }
 }
 
+//responsible for updating screen
 function animate() {
   requestAnimationFrame(animate);
   c.clearRect(0,0,innerWidth,innerHeight);
   circleArray.update();
 }
-var circleArray = new CircleArray(1000);
+//creates an array of particles
+var circleArray = new CircleArray(particleNum);
 animate();
