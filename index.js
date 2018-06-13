@@ -27,16 +27,33 @@ function Circle(x,y,dx,dy,radius) {
     }
     this.y+= this.dy;
     this.x+= this.dx;
+    this.draw();
   }
 }
 
-var circle = new Circle(200,200,3,3,60);
+function CircleArray(size) {
+  this.Array = [];
+  for (i = 0; i < size; i++) {
+    var x = Math.random() * innerWidth;
+    var y = Math.random() * innerHeight;
+    var dx = (Math.random() - 1) * 10;
+    var dy = (Math.random() - 1) * 10;
+    var radius = Math.random() * 20 + 20;
+    this.Array.push(new Circle(x,y,dx,dy,radius))
+  }
+  this.update = function() {
+    for (i = 0; i < size; i++) {
+      this.Array[i].update();
+    }
+  }
+}
+
+var circleArray = new CircleArray(100);
 
 function animate() {
   requestAnimationFrame(animate);
   c.clearRect(0,0,innerWidth,innerHeight);
-  circle.draw();
-  circle.update();
+  circleArray.update();
 
 
 }
